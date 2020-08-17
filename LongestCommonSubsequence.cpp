@@ -35,7 +35,7 @@ public:
                           }
                 
                      else {
-            return t[i][j]= max(t[i][j-1],t[i-1][j]);
+             t[i][j]= max(t[i][j-1],t[i-1][j]);
                      }
             }
         }

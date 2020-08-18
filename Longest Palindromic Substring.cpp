@@ -3,7 +3,7 @@ public:
     int longestPalindromeSubseq(string a) {
       
        string b=a;
-        reverse(b.begin(),b.end()); // reverse doesnot return anything void hai na bhul gya tha only reverse
+        reverse(b.begin(),b.end()); // reverse doesnot return anything void hai na bhul gya tha  // only reverse
         return LCS(a,b);
     }
     int LCS(string a,string b){

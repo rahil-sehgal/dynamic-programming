@@ -1,43 +1,34 @@
 class Solution {
 public:
-    bool subsetsum(vector<int> arr,int sum){
-       int n=arr.size();
-        int t[n+1][sum+1];
-      
-        //base condition
-        for(int i=0;i<n;i++){
-            for(int j=0;j<sum;j++)
-            {
-                if(i==0&&j!=0) t[i][j]=0;
-                else if(j==0) t[i][j]=1;
-            }
-        }
-        for(int i=1;i<=n;i++){
-            for(int j=1;j<=sum;j++){
-             if(arr[i-1]<sum){
-            t[i][j]=t[i-1][j-arr[i-1]] || t[i-1][j];
-            }
-        else       t[i][j]= t[i-1][j];
-            
-                }
-        }
-    return t[n-1][sum-1];
-        
-    }
-    
-    
+    //equate their subset sum 
     bool canPartition(vector<int>& nums) {
-       int sum=0;
-        for(int i=0;i<nums.size();i++){
+           int sum=0;
+        for(int i=0;i<nums.size()+1;i++){
             sum+=nums[i];
         }
-        int n=nums.size();
-        
         if(sum%2!=0){
             return false;
-            }
-        else {
-            return subsetsum(nums,sum/2);
         }
+        else return subsetsum(nums,sum/2);
+    }
+    bool subsetsum(vector<int> a,int sum){
+        int n=a.size();
+        int t[n+1][sum+1];
+            
+            
+            for(int i=0;i<n+1;i++){
+                for(int j=0;j<sum+1;j++){
+                    if(i==0 && j!=0){
+                        t[i][j]=0;
+                    }
+                    else if (j==0){t[i][j]=1;}
+                     else if(a[i-1]<=j){           //else if(a[i-1]<=sum) ye galat hai
+                         t[i][j]=t[i-1][j-a[i-1]] || t[i-1][j];
+                      }
+                      else t[i][j]=t[i-1][j];
+                }
+            }
+      
+        return t[n][sum];
     }
 };

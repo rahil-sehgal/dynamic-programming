@@ -8,12 +8,13 @@ public:
         
         for(int i=0;i<m+1;i++){
             for(int j=0;j<n+1;j++){
-                if(i==0||j==0){ t[i][j]=0;}
+              if(i==0||j==0){ t[i][j]=0;} 
                 else if(a[i-1]==b[j-1]){
                     t[i][j]=1+t[i-1][j-1];
                     
                 }
-                else t[i][j] =max(t[i-1][j],t[i][j-1]);
+             //   else   t[i][j] = 1 + min(t[i - 1][j], t[i][j - 1]);
+               else t[i][j] =max(t[i-1][j],t[i][j-1]);
             }
         }
        int i=m,j=n;
@@ -27,7 +28,7 @@ public:
                         v.push_back(a[i-1]);
                         i--;
                  }
-                else {
+                else  {
                     v.push_back(b[j-1]);
                     j--;
                 }}
@@ -45,3 +46,7 @@ public:
     int max(int a,int b){return (a>b)?a:b;}
     
 };
+
+//"bbbaaaba"
+//"bbababbb"
+//ye test case hard tha --> TLE

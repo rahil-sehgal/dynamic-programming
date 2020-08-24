@@ -1,3 +1,5 @@
+//REVERSE KRNA BHUL GYA
+
 class Solution {
 public:
     //note: length of Shortest commmon supersequence will be m+n-LCS(a,b)
@@ -18,7 +20,7 @@ public:
             }
         }
        int i=m,j=n;
-          string v; //not vector<int> v
+          string v ; //not vector<int> v
         while(i>0 && j>0){
             if(a[i-1]==b[j-1]){
                 v.push_back(a[i-1]);
@@ -41,6 +43,7 @@ public:
             v.push_back(b[j-1]);
             j--;
         }
+        reverse(v.begin(),v.end());
         return v;                       
     }
     int max(int a,int b){return (a>b)?a:b;}

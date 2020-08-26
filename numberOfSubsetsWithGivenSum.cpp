@@ -1,4 +1,7 @@
- int countsubsetsum(vector<int> arr,int sum){
+//This one is not on LC
+//LC wale mein subsets print krne hai
+
+int countsubsetsum(vector<int> arr,int sum){
         //subset sum similar to 0/1 knapsack
         int n=arr.size();
         int t[n+1][sum+1];

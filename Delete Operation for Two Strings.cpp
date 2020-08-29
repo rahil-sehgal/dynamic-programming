@@ -1,3 +1,5 @@
+//easy
+
 class Solution {
 public:
     int minDistance(string X, string Y) {
@@ -25,4 +27,4 @@ public:
     }
     int max(int a,int b){ return (a>b)?a:b; }
 };
-//Hi
+
